@@ -1,0 +1,34 @@
+.page-header
+  h1
+    | Show customer
+
+  .btn-group.pull-right
+    = link_to edit_customer_path(@customer), class: 'btn btn-primary' do 
+      span.glyphicon.glyphicon-pencil
+      |  Edit
+
+    = link_to customers_path, class: 'btn btn-default' do 
+      span.glyphicon.glyphicon-list-alt
+      |  Back
+
+dl.dl-horizontal
+  dt
+    | First name:
+  dd
+    = @customer.first_name
+  dt
+    | Last name:
+  dd
+    = @customer.last_name
+  dt
+    | Address:
+  dd
+    = @customer.address
+  dt
+    | Phone:
+  dd
+    = @customer.phone
+  dt
+    | Email:
+  dd
+    = @customer.email

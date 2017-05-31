@@ -1,0 +1,79 @@
+.page-header
+  h1
+    | Listing wines
+
+  = link_to new_wine_path, class: 'btn btn-primary pull-right' do 
+    span.glyphicon.glyphicon-plus
+    |  New Wine
+
+/.table-responsive <-- use only this if you want your table responsive
+/ however dropdowns wont work correctly anymore then
+.table-responsive [style="overflow-x: visible !important; overflow-y: visible !important;"]
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th
+          | Name
+        th
+          | Volume
+        th
+          | Bottle price
+        th
+          | Box price
+        th
+          | Year
+        th
+          | From
+        th
+          | Wine type
+        th
+        th.hidden-sm.hidden-xs
+        th.hidden-sm.hidden-xs
+    tbody
+      - @wines.each do | wine |
+        tr
+          td
+            = wine.name
+          td
+            = wine.volume
+          td
+            = wine.bottle_price
+          td
+            = wine.box_price
+          td
+            = wine.year
+          td
+            = wine.from
+          td
+            = wine.wine_type
+          td.hidden-sm.hidden-xs
+            = link_to wine
+              span.glyphicon.glyphicon-eye-open 
+              = ' Show'
+          td.hidden-sm.hidden-xs
+            = link_to edit_wine_path(wine) 
+              span.glyphicon.glyphicon-pencil
+              = ' Edit'  
+          td.hidden-sm.hidden-xs
+            = link_to wine, method: :delete, data: { confirm: 'Are you sure?' } 
+              span.glyphicon.glyphicon-trash 
+              = ' Destroy'
+
+          td.visible-sm.visible-xs
+            .dropdown
+              a.dropdown-toggle data-toggle='dropdown' aria-haspopup='true'
+                span.caret
+
+              ul.dropdown-menu.dropdown-menu-right
+                li
+                  = link_to wine
+                    span.glyphicon.glyphicon-eye-open 
+                    = ' Show'
+                li
+                  = link_to edit_wine_path(wine) 
+                    span.glyphicon.glyphicon-pencil
+                    = ' Edit'  
+                li
+                  = link_to wine, method: :delete, data: { confirm: 'Are you sure?' } 
+                    span.glyphicon.glyphicon-trash 
+                    = ' Destroy'

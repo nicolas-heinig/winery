@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324132024) do
+ActiveRecord::Schema.define(version: 20170531185608) do
+
+  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "address",    limit: 65535
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username",            default: "", null: false
@@ -21,6 +31,18 @@ ActiveRecord::Schema.define(version: 20170324132024) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+  end
+
+  create_table "wines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.float    "volume",       limit: 24
+    t.decimal  "bottle_price",            precision: 8, scale: 2
+    t.decimal  "box_price",               precision: 8, scale: 2
+    t.integer  "year"
+    t.string   "from"
+    t.string   "wine_type"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
 end

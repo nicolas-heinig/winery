@@ -1,0 +1,42 @@
+.page-header
+  h1
+    | Show wine
+
+  .btn-group.pull-right
+    = link_to edit_wine_path(@wine), class: 'btn btn-primary' do 
+      span.glyphicon.glyphicon-pencil
+      |  Edit
+
+    = link_to wines_path, class: 'btn btn-default' do 
+      span.glyphicon.glyphicon-list-alt
+      |  Back
+
+dl.dl-horizontal
+  dt
+    | Name:
+  dd
+    = @wine.name
+  dt
+    | Volume:
+  dd
+    = @wine.volume
+  dt
+    | Bottle price:
+  dd
+    = @wine.bottle_price
+  dt
+    | Box price:
+  dd
+    = @wine.box_price
+  dt
+    | Year:
+  dd
+    = @wine.year
+  dt
+    | From:
+  dd
+    = @wine.from
+  dt
+    | Wine type:
+  dd
+    = @wine.wine_type

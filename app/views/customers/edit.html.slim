@@ -1,0 +1,14 @@
+.page-header
+  h1
+    | Kunden bearbeiten
+
+  .btn-group.pull-right
+    = link_to @customer, class: 'btn btn-primary' do
+      span.glyphicon.glyphicon-info-sign
+      |  Show
+
+    = link_to customers_path, class: 'btn btn-default' do
+      span.glyphicon.glyphicon-list-alt
+      |  Back
+
+= render 'form'

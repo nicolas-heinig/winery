@@ -1,0 +1,10 @@
+= simple_form_for @wine do |f|
+  .col-sm-4
+    = f.input :name
+    = f.input :volume
+    = f.input :bottle_price
+    = f.input :box_price
+    = f.input :year
+    = f.input :from
+    = f.input :wine_type
+    = f.submit 'Save', class: 'btn btn-success'

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :wines
+  resources :customers
   # People shouldnt be able to register themselves
   get 'users/sign_up', to: redirect('/')
   post 'devise/users', to: redirect('/')

@@ -1,0 +1,8 @@
+= simple_form_for @customer do |f|
+  .col-sm-4
+    = f.input :first_name, label: 'Vorname'
+    = f.input :last_name, label: 'Nachname'
+    = f.input :address, label: 'Adresse'
+    = f.input :phone, label: 'Telefonnummer'
+    = f.input :email, label: 'E-Mail'
+    = f.submit 'Save', class: 'btn btn-success'
