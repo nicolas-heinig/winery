@@ -1,0 +1,59 @@
+.page-header
+  h1
+    | Listing <%= plural_table_name %>
+
+  = link_to new_<%= singular_table_name %>_path, class: 'btn btn-primary pull-right' do 
+    span.glyphicon.glyphicon-plus
+    |  New <%= human_name %>
+
+/.table-responsive <-- use only this if you want your table responsive
+/ however dropdowns wont work correctly anymore then
+.table-responsive [style="overflow-x: visible !important; overflow-y: visible !important;"]
+  table.table.table-striped.table-hover
+    thead
+      tr
+<%- for attribute in attributes -%>
+        th
+          | <%= attribute.human_name %>
+<%- end -%>
+        th
+        th.hidden-sm.hidden-xs
+        th.hidden-sm.hidden-xs
+    tbody
+      - @<%= plural_table_name %>.each do | <%= singular_table_name %> |
+        tr
+<%- for attribute in attributes -%>
+          td
+            = <%= singular_table_name %>.<%= attribute.name %>
+<%- end -%>
+          td.hidden-sm.hidden-xs
+            = link_to <%= singular_table_name %>
+              span.glyphicon.glyphicon-eye-open 
+              = ' Show'
+          td.hidden-sm.hidden-xs
+            = link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>) 
+              span.glyphicon.glyphicon-pencil
+              = ' Edit'  
+          td.hidden-sm.hidden-xs
+            = link_to <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } 
+              span.glyphicon.glyphicon-trash 
+              = ' Destroy'
+
+          td.visible-sm.visible-xs
+            .dropdown
+              a.dropdown-toggle data-toggle='dropdown' aria-haspopup='true'
+                span.caret
+
+              ul.dropdown-menu.dropdown-menu-right
+                li
+                  = link_to <%= singular_table_name %>
+                    span.glyphicon.glyphicon-eye-open 
+                    = ' Show'
+                li
+                  = link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>) 
+                    span.glyphicon.glyphicon-pencil
+                    = ' Edit'  
+                li
+                  = link_to <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } 
+                    span.glyphicon.glyphicon-trash 
+                    = ' Destroy'

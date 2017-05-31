@@ -1,0 +1,6 @@
+li.divider role="separator"
+li.dropdown-header Rolle wechseln
+
+li
+  = form_tag role_switch_path, method: 'post'
+    = select_tag :role, options_for_select(User.roles, User.roles[current_user.role]), class: 'form-control', onchange: 'this.form.submit()'

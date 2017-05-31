@@ -1,0 +1,6 @@
+= simple_form_for @<%= singular_table_name %> do |f|
+  .col-sm-4
+  <%-  attributes.each do |attribute| -%>
+    = f.input :<%= attribute.name %>
+  <%- end -%>
+    = f.submit 'Save', class: 'btn btn-success'

@@ -1,0 +1,23 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  devise:
+    failure:
+      already_authenticated: 'Du bist bereits eingeloggt.'
+      invalid: 'Unbekannter %{authentication_keys} oder Passwort.'
+      not_found_in_database: 'Unbekannter %{authentication_keys} oder Passwort.'
+      timeout: 'Deine Session ist abgelaufen. Um fortzufahren, musst du dich einloggen.'
+      unauthenticated: 'Du musst dich zuerst anmelden.'
+    registrations:
+      destroyed: 'Dein Account wurde gelöscht.'
+      updated: 'Änderungen gespeichert!'
+    sessions:
+      signed_in: 'Du bist jetzt eingeloggt.'
+      signed_out: 'Du bist jetzt ausgeloggt.'
+      already_signed_out: 'Du bist jetzt ausgeloggt.'
+  errors:
+    messages:
+      not_found: 'nicht gefunden'
+      not_saved:
+        one: '1 error beim Speichern vom %{resource}:'
+        other: '%{count} errors beim Speichern vom %{resource}:'

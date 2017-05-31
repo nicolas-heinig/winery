@@ -1,0 +1,17 @@
+- if notice
+  p.alert.alert-success
+    span.glyphicon.glyphicon-ok-sign aria-hidden='true'
+
+    a.close href='#' data-dismiss='alert' aria-label='close'
+      | ×
+
+    = notice
+
+- if alert
+  p.alert.alert-danger
+    span.glyphicon.glyphicon-exclamation-sign aria-hidden='true'
+
+    a.close href='#' data-dismiss='alert' aria-label='close'
+      | ×
+
+    = alert

@@ -1,0 +1,10 @@
+= simple_form_for @user, url: @user.new_record? ? users_path : user_path, method: @user.new_record? ? :post : :put do |f|
+  .col-lg-4
+    = f.input :username
+    = f.input :email
+    = f.input :role, collection: User.roles, label: 'Rolle', selected: 'member'
+    
+    - if @user.new_record?
+      = f.input :password
+
+    = f.submit 'Speichern', class: 'btn btn-success'

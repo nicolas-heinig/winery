@@ -1,0 +1,22 @@
+h2 = 'Einstellungen'
+
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = f.error_notification
+
+  .col-lg-4
+    = f.input :username, required: true
+    = f.input :email, required: true
+
+    br
+
+    = f.button :submit, 'Speichern', class: 'hidden-xs'
+
+  .col-lg-4
+    = f.input :password, autocomplete: 'off', required: false, label: 'Passwort'
+    = f.input :password_confirmation, required: false, label: 'Passwort bestätigen'
+    = f.input :current_password, required: true, label: 'Aktuelles Passwort'
+
+  .col-lg-4.visible-xs
+    br
+
+    = f.button :submit, 'Speichern', class: 'col-xs-12'

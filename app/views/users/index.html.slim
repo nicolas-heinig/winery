@@ -1,0 +1,25 @@
+h2 Userverwaltung
+
+= link_to 'Neuer User', new_user_path, class: 'btn btn-primary pull-right'
+
+table.table.table-responsive
+  thead
+    th Username
+    th E-Mail
+    th Rolle
+    th.hidden-xs
+    th.hidden-xs
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.username
+        td = user.email
+        td = user.role
+
+        td.hidden-xs = link_to edit_user_path(user)
+          span.glyphicon.glyphicon-pencil
+          = ' Bearbeiten'
+        td.hidden-xs = link_to user_path(user), method: :delete, 'data-confirm' => 'Bist du sicher?'
+          span.glyphicon.glyphicon-trash
+          = ' Löschen'
