@@ -1,14 +1,14 @@
 .page-header
   h1
-    | Editing wine
+    | Wein bearbeiten
 
   .btn-group.pull-right
     = link_to @wine, class: 'btn btn-primary' do
       span.glyphicon.glyphicon-info-sign
-      |  Show
+      |  Anzeigen
 
     = link_to wines_path, class: 'btn btn-default' do
       span.glyphicon.glyphicon-list-alt
-      |  Back
+      |  Zurück
 
 = render 'form'

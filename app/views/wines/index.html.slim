@@ -1,10 +1,10 @@
 .page-header
   h1
-    | Listing wines
+    | Alle Weine
 
   = link_to new_wine_path, class: 'btn btn-primary pull-right' do 
     span.glyphicon.glyphicon-plus
-    |  New Wine
+    |  Neuer Wein
 
 /.table-responsive <-- use only this if you want your table responsive
 / however dropdowns wont work correctly anymore then
@@ -15,17 +15,17 @@
         th
           | Name
         th
-          | Volume
+          | Volumen
         th
-          | Bottle price
+          | Flaschenpreis
         th
-          | Box price
+          | Kartonpreis
         th
-          | Year
+          | Jahr
         th
-          | From
+          | Anbaugebiet
         th
-          | Wine type
+          | Weinart
         th
         th.hidden-sm.hidden-xs
         th.hidden-sm.hidden-xs
@@ -49,15 +49,15 @@
           td.hidden-sm.hidden-xs
             = link_to wine
               span.glyphicon.glyphicon-eye-open 
-              = ' Show'
+              = ' Anzeigen'
           td.hidden-sm.hidden-xs
             = link_to edit_wine_path(wine) 
               span.glyphicon.glyphicon-pencil
-              = ' Edit'  
+              = ' Bearbeiten'  
           td.hidden-sm.hidden-xs
-            = link_to wine, method: :delete, data: { confirm: 'Are you sure?' } 
+            = link_to wine, method: :delete, data: { confirm: 'Bist du sicher?' } 
               span.glyphicon.glyphicon-trash 
-              = ' Destroy'
+              = ' Löschen'
 
           td.visible-sm.visible-xs
             .dropdown
@@ -68,12 +68,12 @@
                 li
                   = link_to wine
                     span.glyphicon.glyphicon-eye-open 
-                    = ' Show'
+                    = ' Anzeigen'
                 li
                   = link_to edit_wine_path(wine) 
                     span.glyphicon.glyphicon-pencil
-                    = ' Edit'  
+                    = ' Bearbeiten'  
                 li
                   = link_to wine, method: :delete, data: { confirm: 'Are you sure?' } 
                     span.glyphicon.glyphicon-trash 
-                    = ' Destroy'
+                    = ' Löschen'

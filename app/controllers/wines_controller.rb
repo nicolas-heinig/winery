@@ -20,7 +20,7 @@ class WinesController < ApplicationController
     @wine = Wine.new(wine_params)
 
     if @wine.save
-      redirect_to @wine, notice: 'Wine was successfully created.'
+      redirect_to @wine, notice: 'Wein gespeichert!'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class WinesController < ApplicationController
     @wine = Wine.find(params[:id])
 
     if @wine.update(wine_params)
-      redirect_to @wine, notice: 'Wine was successfully updated.'
+      redirect_to @wine, notice: 'Wein gespeichert!'
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class WinesController < ApplicationController
 
     @wine.destroy
 
-    redirect_to wines_url, notice: 'Wine was successfully destroyed.'
+    redirect_to wines_url, notice: 'Wein gelöscht!'
   end
 
   private

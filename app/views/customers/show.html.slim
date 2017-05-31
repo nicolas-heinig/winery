@@ -1,34 +1,33 @@
 .page-header
-  h1
-    | Show customer
+  h1 = @customer.full_name
 
   .btn-group.pull-right
     = link_to edit_customer_path(@customer), class: 'btn btn-primary' do 
       span.glyphicon.glyphicon-pencil
-      |  Edit
+      |  Bearbeiten
 
     = link_to customers_path, class: 'btn btn-default' do 
       span.glyphicon.glyphicon-list-alt
-      |  Back
+      |  Zurück
 
 dl.dl-horizontal
   dt
-    | First name:
+    | Vorname:
   dd
     = @customer.first_name
   dt
-    | Last name:
+    | Nachname:
   dd
     = @customer.last_name
   dt
-    | Address:
+    | Adresse:
   dd
     = @customer.address
   dt
-    | Phone:
+    | Telefonnummer:
   dd
     = @customer.phone
   dt
-    | Email:
+    | E-Mail:
   dd
     = @customer.email

@@ -1,10 +1,10 @@
 = simple_form_for @wine do |f|
   .col-sm-4
-    = f.input :name
-    = f.input :volume
-    = f.input :bottle_price
-    = f.input :box_price
-    = f.input :year
-    = f.input :from
-    = f.input :wine_type
-    = f.submit 'Save', class: 'btn btn-success'
+    = f.input :name, label: 'Name'
+    = f.input :volume, label: 'Volumen'
+    = f.input :bottle_price, label: 'Flaschenpreis'
+    = f.input :box_price, label: 'Kartonpreis'
+    = f.input :year, label: 'Jahrgang'
+    = f.input :from, label: 'Anbaugebiet'
+    = f.input :wine_type, label: 'Weinart'
+    = f.submit 'Speichern', class: 'btn btn-success'

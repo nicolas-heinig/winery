@@ -1,15 +1,14 @@
 .page-header
-  h1
-    | Show wine
+  h1 = @wine.name
 
   .btn-group.pull-right
     = link_to edit_wine_path(@wine), class: 'btn btn-primary' do 
       span.glyphicon.glyphicon-pencil
-      |  Edit
+      |  Bearbeiten
 
     = link_to wines_path, class: 'btn btn-default' do 
       span.glyphicon.glyphicon-list-alt
-      |  Back
+      |  Zurück
 
 dl.dl-horizontal
   dt
@@ -17,26 +16,26 @@ dl.dl-horizontal
   dd
     = @wine.name
   dt
-    | Volume:
+    | Volumen:
   dd
     = @wine.volume
   dt
-    | Bottle price:
+    | Flaschenpreis:
   dd
     = @wine.bottle_price
   dt
-    | Box price:
+    | Kartonpreis:
   dd
     = @wine.box_price
   dt
-    | Year:
+    | Jahrgang:
   dd
     = @wine.year
   dt
-    | From:
+    | Anbaugebiet:
   dd
     = @wine.from
   dt
-    | Wine type:
+    | Weinart:
   dd
     = @wine.wine_type

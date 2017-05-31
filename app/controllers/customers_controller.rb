@@ -20,7 +20,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      redirect_to @customer, notice: 'Customer was successfully created.'
+      redirect_to @customer, notice: 'Kunde angelegt!'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
 
     if @customer.update(customer_params)
-      redirect_to @customer, notice: 'Customer was successfully updated.'
+      redirect_to @customer, notice: 'Kunde gespeichert!'
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class CustomersController < ApplicationController
 
     @customer.destroy
 
-    redirect_to customers_url, notice: 'Customer was successfully destroyed.'
+    redirect_to customers_url, notice: 'Kunde gelöscht!'
   end
 
   private
