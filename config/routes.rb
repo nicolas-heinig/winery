@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :orders
-  resources :wines
-  resources :customers
   # People shouldnt be able to register themselves
   get 'users/sign_up', to: redirect('/')
   post 'devise/users', to: redirect('/')
@@ -12,4 +9,15 @@ Rails.application.routes.draw do
   post 'role_switch', to: 'startpage#role_switch', as: 'role_switch'
 
   resources :users, except: :show
+
+  resources :orders
+
+  resources :wines
+
+  resources :customers
+
+  scope 'search' do
+    get 'customers', to: 'customers#search'
+    get 'wines', to: 'wines#search'
+  end
 end

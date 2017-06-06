@@ -16,6 +16,8 @@ gem 'slim-rails'
 
 gem 'devise'
 
+gem 'searchkick'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rubocop'

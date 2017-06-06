@@ -5,6 +5,11 @@ class CustomersController < ApplicationController
     @customers = Customer.all
   end
 
+  def search
+    results = Customer.search(params.fetch(:query))
+    render json: results
+  end
+
   def show
     @customer = Customer.find(params[:id])
   end
@@ -14,9 +19,8 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find_by(params[:id])
   end
-
 
   def create
     @customer = Customer.new(customer_params)

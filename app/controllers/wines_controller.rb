@@ -5,6 +5,11 @@ class WinesController < ApplicationController
     @wines = Wine.all
   end
 
+  def search
+    results = Wine.search(params.fetch(:query), fields: [:name])
+    render json: results
+  end
+
   def show
     @wine = Wine.find(params[:id])
   end
