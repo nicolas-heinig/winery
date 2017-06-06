@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :wines
   resources :customers
   # People shouldnt be able to register themselves

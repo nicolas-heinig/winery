@@ -1,0 +1,9 @@
+.page-header
+  h1
+    | Neue Bestellung 
+
+  = link_to orders_path, class: 'btn btn-default pull-right' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Zurück 
+
+= render 'form'

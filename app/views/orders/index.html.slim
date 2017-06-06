@@ -1,0 +1,79 @@
+.page-header
+  h1
+    | Alle Bestellungen
+
+  = link_to new_order_path, class: 'btn btn-primary pull-right' do 
+    span.glyphicon.glyphicon-plus
+    |  Neue Bestellung
+
+/.table-responsive <-- use only this if you want your table responsive
+/ however dropdowns wont work correctly anymore then
+.table-responsive [style="overflow-x: visible !important; overflow-y: visible !important;"]
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th
+          | Kunde
+        th
+          | Wein
+        th
+          | Kartons
+        th
+          | Flaschen
+        th
+          | Preis
+        th
+          | Abgeschickt?
+        th
+        th.hidden-sm.hidden-xs
+        th.hidden-sm.hidden-xs
+    tbody
+      - @orders.each do | order |
+        tr
+          td
+            = order.customer.full_name
+          td
+            = order.wine.name
+          td
+            = order.boxes
+          td
+            = order.bottles
+          td
+            = order.full_price
+          td
+            - if order.shipped?
+              span.glyphicon.glyphicon-ok
+            - else
+              span.glyphicon.glyphicon-remove
+
+          td.hidden-sm.hidden-xs
+            = link_to order
+              span.glyphicon.glyphicon-eye-open 
+              = ' Anzeigen'
+          td.hidden-sm.hidden-xs
+            = link_to edit_order_path(order) 
+              span.glyphicon.glyphicon-pencil
+              = ' Bearbeiten'  
+          td.hidden-sm.hidden-xs
+            = link_to order, method: :delete, data: { confirm: 'Bist du sicher?' } 
+              span.glyphicon.glyphicon-trash 
+              = ' Löschen'
+
+          td.visible-sm.visible-xs
+            .dropdown
+              a.dropdown-toggle data-toggle='dropdown' aria-haspopup='true'
+                span.caret
+
+              ul.dropdown-menu.dropdown-menu-right
+                li
+                  = link_to order
+                    span.glyphicon.glyphicon-eye-open 
+                    = ' Anzeigen'
+                li
+                  = link_to edit_order_path(order) 
+                    span.glyphicon.glyphicon-pencil
+                    = ' Bearbeiten'  
+                li
+                  = link_to order, method: :delete, data: { confirm: 'Are you sure?' } 
+                    span.glyphicon.glyphicon-trash 
+                    = ' Löschen'

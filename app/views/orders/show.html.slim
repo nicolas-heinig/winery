@@ -1,0 +1,40 @@
+.page-header
+  h1 = "Bestellung Nr. #{ @order.id }"
+
+  .btn-group.pull-right
+    = link_to edit_order_path(@order), class: 'btn btn-primary' do 
+      span.glyphicon.glyphicon-pencil
+      |  Bearbeiten
+
+    = link_to orders_path, class: 'btn btn-default' do 
+      span.glyphicon.glyphicon-list-alt
+      |  Zurück
+
+dl.dl-horizontal
+  dt
+    | Kunde:
+  dd
+    = @order.customer.full_name
+  dt
+    | Weine:
+  dd
+    = @order.wine.name
+  dt
+    | Boxes:
+  dd
+    = @order.boxes
+  dt
+    | Bottles:
+  dd
+    = @order.bottles
+  dt
+    | Preis
+  dd
+    = @order.full_price
+  dt
+    | Abgeschickt?:
+  dd
+    - if @order.shipped?
+      span.glyphicon.glyphicon-ok
+    - else
+      span.glyphicon.glyphicon-remove
