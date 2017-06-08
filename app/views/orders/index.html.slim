@@ -2,9 +2,20 @@
   h1
     | Alle Bestellungen
 
-  = link_to new_order_path, class: 'btn btn-primary pull-right' do 
-    span.glyphicon.glyphicon-plus
-    |  Neue Bestellung
+  .btn-group-vertical.pull-right
+    = link_to new_order_path, class: 'btn btn-primary' do 
+      span.glyphicon.glyphicon-plus
+      |  Neue Bestellung
+    
+    - unless @only_open
+      = link_to orders_path(open: true), class: 'btn btn-default' do
+        span.glyphicon.glyphicon-record
+        |  Nur alle offenen anzeigen
+    
+    - else
+      = link_to orders_path, class: 'btn btn-default' do
+        span.glyphicon.glyphicon-record
+        |  Alle anzeigen
 
 /.table-responsive <-- use only this if you want your table responsive
 / however dropdowns wont work correctly anymore then

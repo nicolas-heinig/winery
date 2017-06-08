@@ -2,7 +2,8 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orders = Order.all
+    @only_open = params[:open]
+    @orders = @only_open ? Order.where(shipped: false) : Order.all
   end
 
   def show
