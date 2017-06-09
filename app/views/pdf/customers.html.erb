@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 10px;
+      }
+
+      table {
+        page-break-after: always;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Kundenliste <%= Date.today %></h1>
+
+    <% @customers.in_groups_of(16) do |group| %>
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Adresse
+          </th>
+          <th>
+            Telefonnummer
+          </th>
+          <th>
+            E-Mail
+          </th>
+        </tr>
+
+        <% group.each do |customer| %>
+          <% if customer %>
+            <tr>
+              <td>
+                <%= customer.full_name %>
+              </td>
+              <td>
+                <%= simple_format customer.address %>
+              </td>
+              <td>
+                <%= customer.phone %>
+              </td>
+              <td>
+                <%= customer.email ? customer.email : '-' %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    <% end %>
+  </body>
+</html>

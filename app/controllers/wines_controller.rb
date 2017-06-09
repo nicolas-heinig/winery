@@ -6,7 +6,7 @@ class WinesController < ApplicationController
   end
 
   def search
-    results = Wine.search(params.fetch(:query), fields: [:name])
+    results = Wine.search(params.fetch(:query), fields: [:name], limit: 8)
     render json: results
   end
 

@@ -18,6 +18,9 @@ gem 'devise'
 
 gem 'searchkick'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rubocop'

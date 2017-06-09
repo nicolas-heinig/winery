@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def search
-    results = Customer.search(params.fetch(:query))
+    results = Customer.search(params.fetch(:query), limit: 8)
     render json: results
   end
 

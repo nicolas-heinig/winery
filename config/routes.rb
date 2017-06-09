@@ -20,4 +20,9 @@ Rails.application.routes.draw do
     get 'customers', to: 'customers#search'
     get 'wines', to: 'wines#search'
   end
+
+  scope 'pdf', controller: 'pdf' do
+    get :index, as: 'pdf_index'
+    get :customers, as: 'pdf_customers'
+  end
 end
