@@ -22,7 +22,7 @@
   </head>
 
   <body>
-    <h1>Kundenliste <%= Date.today %></h1>
+    <h1>Kundenliste <%= Date.today.strftime('%d.%m.%y') %></h1>
 
     <% @customers.in_groups_of(16) do |group| %>
       <table>

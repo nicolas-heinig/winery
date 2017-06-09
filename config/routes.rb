@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   scope 'pdf', controller: 'pdf' do
     get :index, as: 'pdf_index'
     get :customers, as: 'pdf_customers'
+    get :orders, as: 'pdf_orders'
   end
 end

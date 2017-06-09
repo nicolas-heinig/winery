@@ -7,4 +7,10 @@ class PdfController < ApplicationController
 
     render pdf: 'customers', header: { right: '[page] of [topage]' }
   end
+
+  def orders
+    @presenter = OpenOrdersPresenter.new
+
+    render pdf: 'orders', header: { right: '[page] of [topage]' }
+  end
 end

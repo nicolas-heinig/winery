@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 5px;
+      }
+
+      table {
+        margin-bottom: 20px;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Offene Bestellungen <%= Date.today.strftime('%d.%m.%y') %></h1>
+
+    <% @presenter.customers_with_open_orders.each do |customer| %>
+      <strong><%= customer.full_name %></strong> <%= customer.address %>, <%= customer.phone %><br />
+      <hr />
+
+      <table>
+        <tr>
+          <th>
+            Wein
+          </th>
+
+          <th>
+            Kartons
+          </th>
+
+          <th>
+            Flaschen
+          </th>
+
+          <th>
+            Preis
+          </th>
+        </tr>
+
+        <% @presenter.orders_for_customer(customer).each do |order| %>
+          <tr>
+            <td>
+              <%= order.wine_name %>
+            </td>
+
+            <td>
+              <%= order.boxes %>
+            </td>
+
+            <td>
+              <%= order.bottles %>
+            </td>
+
+            <td>
+              <%= order.full_price %>
+            </td>
+          </tr>
+        <% end %>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <strong><%= @presenter.sum_price_of_open_orders(customer) %></strong>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </body>
+</html>
