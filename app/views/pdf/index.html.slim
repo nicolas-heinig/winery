@@ -2,10 +2,10 @@
   h1
     | Alle Listen zum Ausdrucken
 
-= link_to pdf_customers_path, class: 'btn btn-primary btn-lg' do
+= link_to pdf_customers_path, class: 'btn btn-primary btn-lg', target: '_blank' do
   span.glyphicon.glyphicon-user
   |  Kundenliste
   
-= link_to pdf_orders_path, class: 'btn btn-primary btn-lg' do
+= link_to pdf_orders_path, class: 'btn btn-primary btn-lg', target: '_blank' do
   span.glyphicon.glyphicon-list-alt
   |  Offene Bestellungen
