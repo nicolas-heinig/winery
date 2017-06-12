@@ -1,40 +1,43 @@
 h1 Abschicken
 
-.col-lg-6
-  h4 Bestellungen
-  
-  br
-
-  table.table
-    tr
-      th Wein
-      th Kartons
-      th Flaschen
-      th Preis
-    tr
-
-    - @wines_with_orders.each do |wine, orders|  
-      tr
-        td = wine.name
-        td = orders.sum(&:boxes)
-        td = orders.sum(&:bottles)
-        td = number_to_currency(orders.sum(&:full_price), unit: '€')
-        
-    tr
-      td
-      td
-      td
-      td
-        strong= number_to_currency(@total, unit: '€')
-  
-.col-lg-6
-  h4 Nachricht
-  
-  p Hallo Stefan,
-  
-  = form_tag(sendouts_path, method: :post)
-    = text_area_tag 'custom_text', nil, class: 'form-control', rows: 7
+- if @wines_with_orders.any?
+  .col-lg-6
+    h4 Bestellungen
     
     br
+
+    table.table
+      tr
+        th Wein
+        th Kartons
+        th Flaschen
+        th Preis
+      tr
+
+      - @wines_with_orders.each do |wine, orders|  
+        tr
+          td = wine.name
+          td = orders.sum(&:boxes)
+          td = orders.sum(&:bottles)
+          td = number_to_currency(orders.sum(&:full_price), unit: '€')
+          
+      tr
+        td
+        td
+        td
+        td
+          strong= number_to_currency(@total, unit: '€')
     
-    = submit_tag 'Abschicken', data: { confirm: 'Die Bestellungen werden abgeschickt. Bist du sicher?' }, class: 'btn btn-success'
+  .col-lg-6
+    h4 Nachricht
+    
+    p Hallo Stefan,
+    
+    = form_tag(sendouts_path, method: :post)
+      = text_area_tag 'custom_text', nil, class: 'form-control', rows: 7
+      
+      br
+      
+      = submit_tag 'Abschicken', data: { confirm: 'Die Bestellungen werden abgeschickt. Bist du sicher?' }, class: 'btn btn-success'
+- else
+  p Du musst als erstes Bestellungen aufnehmen.

@@ -2,6 +2,9 @@ class Order < ApplicationRecord
   belongs_to :customer
   belongs_to :wine
 
+  validates :customer_name, :wine_name, presence: true
+  validates :bottles, :boxes, presence: true, numericality: { greater_than: 0 }
+
   def shipped?
     shipped
   end

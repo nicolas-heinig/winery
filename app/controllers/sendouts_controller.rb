@@ -1,4 +1,6 @@
 class SendoutsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @wines_with_orders = Order.includes(:wine).where(shipped: false).group_by(&:wine)
     @total = @wines_with_orders.values.flatten.sum(&:full_price)
