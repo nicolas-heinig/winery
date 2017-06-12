@@ -1,5 +1,10 @@
-h1 THIS IS TURBO
+.col-lg-5.col-lg-offset-3
+  h1 Willkommen in der Winery
+  
+  br
 
-p
-  = 'Turbo is nice '
-  span.glyphicon.glyphicon-ok
+  = link_to 'Kunden', customers_path, class: 'btn btn-primary btn-lg btn-block'
+  = link_to 'Weine', wines_path, class: 'btn btn-primary btn-lg btn-block'
+  = link_to 'Bestellungen', orders_path(open: true), class: 'btn btn-primary btn-lg btn-block'
+  = link_to 'Listen drucken', pdf_index_path, class: 'btn btn-primary btn-lg btn-block'
+  = link_to 'Abschicken', new_sendouts_path, class: 'btn btn-primary btn-lg btn-block'
