@@ -14,8 +14,9 @@ nav.navbar.navbar-default
       ul.nav.navbar-nav.navbar-left
         li = link_to 'Kunden', customers_path
         li = link_to 'Weine', wines_path
-        li = link_to 'Bestellungen', orders_path
+        li = link_to 'Bestellungen', orders_path(open: true)
         li = link_to 'Listen drucken', pdf_index_path
+        li = link_to 'Abschicken', new_sendouts_path
 
 
       ul.nav.navbar-nav.navbar-right

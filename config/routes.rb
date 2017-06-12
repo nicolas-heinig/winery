@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :customers
 
+  resource :sendouts, only: [:new, :create]
+
   scope 'search' do
     get 'customers', to: 'customers#search'
     get 'wines', to: 'wines#search'

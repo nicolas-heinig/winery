@@ -30,7 +30,7 @@ dl.dl-horizontal
   dt
     | Preis
   dd
-    = @order.full_price
+    = number_to_currency(@order.full_price, unit: '€')
   dt
     | Abgeschickt?:
   dd

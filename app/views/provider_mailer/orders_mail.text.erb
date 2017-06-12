@@ -1,0 +1,12 @@
+Hallo Stefan
+
+<%= simple_format @custom_text %>
+
+Insgesamt: <%= number_to_currency(@total, unit: '€') %>
+<% @wines_with_orders.each do |wine, orders| %>
+
+<%= wine.name %>
+  Kartons: <%= orders.sum(&:boxes) %>
+  Flaschen: <%= orders.sum(&:bottles) %>
+  Summe: <%= number_to_currency(orders.sum(&:full_price), unit: '€') %>
+<% end %>

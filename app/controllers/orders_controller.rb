@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def index
     @only_open = params[:open]
-    @orders = @only_open ? Order.where(shipped: false) : Order.all
+    @orders = @only_open ? Order.includes(:wine, :customer).where(shipped: false) : Order.includes(:wine, :customer).all
   end
 
   def show

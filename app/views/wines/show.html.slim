@@ -22,11 +22,11 @@ dl.dl-horizontal
   dt
     | Flaschenpreis:
   dd
-    = @wine.bottle_price
+    = number_to_currency(@wine.bottle_price, unit: '€')
   dt
     | Kartonpreis:
   dd
-    = @wine.box_price
+    = number_to_currency(@wine.box_price, unit: '€')
   dt
     | Jahrgang:
   dd

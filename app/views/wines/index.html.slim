@@ -37,9 +37,9 @@
           td
             = wine.volume
           td
-            = wine.bottle_price
+            = number_to_currency(wine.bottle_price, unit: '€')
           td
-            = wine.box_price
+            = number_to_currency(wine.box_price, unit: '€')
           td
             = wine.year
           td

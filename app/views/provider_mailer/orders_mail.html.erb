@@ -1,0 +1,47 @@
+<head>
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  Hallo Stefan,
+
+  <p><%= simple_format @custom_text %></p>
+
+  <table>
+    <tr>
+      <th>Wein</th>
+      <th>Kartons</th>
+      <th>Flaschen</th>
+      <th>Preis</th>
+    </tr>
+
+    <% @wines_with_orders.each do |wine, orders| %>
+      <tr>
+        <td><%= wine.name %></td>
+        <td><%= orders.sum(&:boxes) %></td>
+        <td><%= orders.sum(&:bottles) %></td>
+        <td><%= number_to_currency(orders.sum(&:full_price), unit: '€') %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><strong><%= number_to_currency(@total, unit: '€') %></strong></td>
+    </tr>
+  </table>
+</body>

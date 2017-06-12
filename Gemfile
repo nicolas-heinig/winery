@@ -21,6 +21,8 @@ gem 'searchkick'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+gem 'mailjet'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rubocop'

@@ -18,3 +18,5 @@
 
 # Ignore .env file
 .env
+
+public/assets/
