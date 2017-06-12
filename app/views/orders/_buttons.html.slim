@@ -1,0 +1,13 @@
+= link_to new_order_path, class: 'btn btn-primary' do 
+  span.glyphicon.glyphicon-plus
+  |  Neue Bestellung
+
+- unless @only_open
+  = link_to orders_path(open: true), class: 'btn btn-default' do
+    span.glyphicon.glyphicon-record
+    |  Nur alle offenen anzeigen
+
+- else
+  = link_to orders_path, class: 'btn btn-default' do
+    span.glyphicon.glyphicon-record
+    |  Alle anzeigen

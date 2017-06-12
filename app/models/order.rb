@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   belongs_to :wine
 
   validates :customer_name, :wine_name, presence: true
-  validates :bottles, :boxes, presence: true, numericality: { greater_than: 0 }
+  validate :at_least_one_box_or_bottle_ordered
 
   def shipped?
     shipped
@@ -27,5 +27,14 @@ class Order < ApplicationRecord
 
   def wine_name
     wine.name if wine
+  end
+
+  private
+
+  def at_least_one_box_or_bottle_ordered
+    if boxes + bottles <= 0
+      errors.add(:boxes, 'Muss größer 0 sein.') if boxes <= 0
+      errors.add(:bottles, 'Muss größer 0 sein.') if bottles <= 0
+    end
   end
 end
