@@ -5,7 +5,7 @@ document.addEventListener "turbolinks:load", ->
 
     unless query == ''
       $.get(
-        url: 'http://localhost:3000/search/customers?query=' + query
+        url: '/search/customers?query=' + query
       ).done (result) ->
         result.forEach (customer) ->
           $('.js-search-result').append result_field_for_customer(customer)
@@ -16,7 +16,7 @@ document.addEventListener "turbolinks:load", ->
 
     unless query == ' '
       $.get(
-        url: 'http://localhost:3000/search/wines?query=' + query
+        url: '/search/wines?query=' + query
       ).done (result) ->
         result.forEach (wine) ->
           $('.js-search-result').append result_field_for_wine(wine)
