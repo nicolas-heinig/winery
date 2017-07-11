@@ -16,7 +16,11 @@ class OpenOrdersPresenter
     end.sort_by(&:wine_name)
   end
 
+  def open_orders_for_customer(customer)
+    orders_for_customer(customer).select { |order| order.shipped == false }
+  end
+
   def sum_price_of_open_orders(customer)
-    orders_for_customer(customer).select { |order| order.shipped == false }.sum(&:full_price)
+    open_orders_for_customer(customer).sum(&:full_price)
   end
 end

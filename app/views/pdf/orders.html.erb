@@ -47,7 +47,7 @@
           </th>
         </tr>
 
-        <% @presenter.orders_for_customer(customer).each do |order| %>
+        <% @presenter.open_orders_for_customer(customer).each do |order| %>
           <tr>
             <td>
               <%= order.wine_name %>
