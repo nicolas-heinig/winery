@@ -44,10 +44,11 @@
             td
               = number_to_currency(order.full_price, unit: '€')
             td
-              - if order.shipped?
-                span.glyphicon.glyphicon-ok
-              - else
-                span.glyphicon.glyphicon-remove
+              center
+                - if order.shipped?
+                  span.glyphicon.glyphicon-ok
+                - else
+                  span.glyphicon.glyphicon-remove
 
             td.hidden-sm.hidden-xs
               = link_to order

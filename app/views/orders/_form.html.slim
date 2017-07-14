@@ -1,7 +1,7 @@
 = simple_form_for @order do |f|
   .col-sm-4
     = f.input :customer_name, as: :search, label: 'Kunde', input_html: { class: 'js-customer-search-field' }
-    = f.input :wine_name, as: :search, label: 'Wein', input_html: { class: 'js-wine-search-field' }
+    = f.input :wine_id, as: :integer, label: 'WeinNr'
     = f.input :boxes, label: 'Kartons'
     = f.input :bottles, label: 'Flaschen'
     = f.input :shipped, label: 'Abgeschickt?'

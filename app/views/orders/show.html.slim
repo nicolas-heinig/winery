@@ -16,15 +16,19 @@ dl.dl-horizontal
   dd
     = @order.customer.full_name
   dt
-    | Weine:
+    | Wein:
   dd
     = @order.wine.name
   dt
-    | Boxes:
+    | WeinNr:
+  dd
+    = @order.wine.id
+  dt
+    | Kartons:
   dd
     = @order.boxes
   dt
-    | Bottles:
+    | Flaschen:
   dd
     = @order.bottles
   dt
