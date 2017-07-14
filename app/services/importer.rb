@@ -33,14 +33,18 @@ class Importer
         email: row[7]
       }
 
-      if customer.valid?
-        customer.save!
-        successful += 1
-        Rails.logger.info "Saved #{customer.full_name}"
-      else
-        Rails.logger.error "Invalid data at line #{index + 1}"
+      Searchkick.callbacks(false) do
+        if customer.valid?
+          customer.save!
+          successful += 1
+          Rails.logger.info "Saved #{customer.full_name}"
+        else
+          Rails.logger.error "Invalid data: ID: #{customer.id} Name: #{customer.full_name}"
+        end
       end
     end
+
+    Customer.reindex
 
     Rails.logger.info "Successfully imported #{successful} customers"
   end
@@ -63,14 +67,18 @@ class Importer
         wine_type: row[2]
       }
 
-      if wine.valid?
-        wine.save!
-        successful += 1
-        Rails.logger.info "Saved #{wine.name}"
-      else
-        Rails.logger.error "Invalid data at line #{index + 1}"
+      Searchkick.callbacks(false) do
+        if wine.valid?
+          wine.save!
+          successful += 1
+          Rails.logger.info "Saved #{wine.name}"
+        else
+          Rails.logger.error "Invalid data: ID: #{wine.id} Name: #{wine.name}"
+        end
       end
     end
+
+    Wine.reindex
 
     Rails.logger.info "Successfully imported #{successful} wines"
   end
