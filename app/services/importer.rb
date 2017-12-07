@@ -37,9 +37,9 @@ class Importer
         if customer.valid?
           customer.save!
           successful += 1
-          Rails.logger.info "Saved #{customer.full_name}"
+          Rails.logger.info "Saved Nr. #{customer.id}: #{customer.full_name}"
         else
-          Rails.logger.error "Invalid data: ID: #{customer.id} Name: #{customer.full_name}"
+          Rails.logger.error "Invalid data: ID: #{customer.id} #{customer.errors.full_messages}"
         end
       end
     end
@@ -59,7 +59,7 @@ class Importer
 
       wine.attributes = {
         name: row[1],
-        volume: row[4].to_f,
+        volume: row[4].try(:gsub, ',', '.').to_f,
         bottle_price: row[5].to_f,
         box_price: row[7].to_f,
         year: row[6].to_i,
@@ -71,9 +71,9 @@ class Importer
         if wine.valid?
           wine.save!
           successful += 1
-          Rails.logger.info "Saved #{wine.name}"
+          Rails.logger.info "Saved Nr. #{wine.id}: #{wine.name}"
         else
-          Rails.logger.error "Invalid data: ID: #{wine.id} Name: #{wine.name}"
+          Rails.logger.error "Invalid data: ID: #{wine.id} #{wine.errors.full_messages}"
         end
       end
     end

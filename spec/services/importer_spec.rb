@@ -119,14 +119,13 @@ RSpec.describe Importer do
             1;"";"Weiß -trocken-";"Rheinhessen";"1";4,00;"2015";24,00
             4;"Rivaner";"Weiß -trocken-";"Rheinhessen";"1";;"2015";24,00
             7;"Rivaner";"Weiß -trocken-";"Rheinhessen";"1";4,00;"2015";
-            5;"Bacchus";"Weiß -feinherb-";"Rheinhessen";;4,00;"2015";24,00
             9;"Riesling";"Weiß -feinherb-";"Rheinhessen";"1";4,30;"2015";25,80
           HEREDOC
         )
       end
 
       it 'skips entries where a field is missing' do
-        expect(Rails.logger).to receive(:error).exactly(4)
+        expect(Rails.logger).to receive(:error).exactly(3)
 
         expect { subject.import! }.to change { Wine.count }.by(1)
         expect(Wine.last.name).to eq('Riesling')
