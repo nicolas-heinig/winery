@@ -14,6 +14,8 @@ h1
       thead
         tr
           th
+            | Nr.
+          th
             | Vorname
           th
             | Nachname
@@ -27,6 +29,8 @@ h1
       tbody
         - @customers.each do | customer |
           tr
+            td
+              = customer.id
             td
               = customer.first_name
             td

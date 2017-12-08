@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  searchkick language: 'german', word_start: [:first_name, :last_name]
+  searchkick language: 'german', word_start: [:id, :first_name, :last_name]
 
   validates :first_name, :last_name, presence: true
 

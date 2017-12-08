@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def search
-    results = Customer.search(params.fetch(:query), limit: 8, fields: [:first_name, :last_name], match: :word_start)
+    results = Customer.search(params.fetch(:query), limit: 8, fields: [:id, :first_name, :last_name], match: :word_start)
     render json: results
   end
 
