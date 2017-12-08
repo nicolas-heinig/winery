@@ -1,84 +1,89 @@
-.page-header
-  h1
-    | Alle Weine
+h1
+  | Alle Weine
 
-  = link_to new_wine_path, class: 'btn btn-primary pull-right' do 
-    span.glyphicon.glyphicon-plus
-    |  Neuer Wein
+.row
+  .col-sm-4
+    input.js-wine-index-search.form-control
+
+  .col-sm-8
+    = link_to new_wine_path, class: 'btn btn-primary pull-right' do 
+      span.glyphicon.glyphicon-plus
+      |  Neuer Wein
 
 /.table-responsive <-- use only this if you want your table responsive
 / however dropdowns wont work correctly anymore then
-.col-sm-12
-  .table-responsive
-    table.table.table-striped.table-hover
-      thead
-        tr
-          th
-            | Nr.
-          th
-            | Name
-          th
-            | Vol.
-          th
-            = "Preis\nFlasche"
-          th
-            = "Preis\nKarton"
-          th
-            | Jahr
-          th
-            | Anbaugebiet
-          th
-            | Weinart
-          th
-          th.hidden-sm.hidden-xs
-          th.hidden-sm.hidden-xs
-      tbody
-        - @wines.each do | wine |
+.row
+  .col-sm-12
+    .table-responsive
+      table.table.table-striped.table-hover
+        thead
           tr
-            td
-              = wine.id
-            td
-              = wine.name
-            td
-              = wine.volume
-            td
-              = number_to_currency(wine.bottle_price, unit: '€')
-            td
-              = number_to_currency(wine.box_price, unit: '€')
-            td
-              = wine.year
-            td
-              = wine.from
-            td
-              = wine.wine_type
-            td.hidden-sm.hidden-xs
-              = link_to wine
-                span.glyphicon.glyphicon-eye-open 
-                = ' Anzeigen'
-            td.hidden-sm.hidden-xs
-              = link_to edit_wine_path(wine) 
-                span.glyphicon.glyphicon-pencil
-                = ' Bearbeiten'  
-            td.hidden-sm.hidden-xs
-              = link_to wine, method: :delete, data: { confirm: 'Bist du sicher?' } 
-                span.glyphicon.glyphicon-trash 
-                = ' Löschen'
+            th
+              | Nr.
+            th
+              | Name
+            th
+              | Vol.
+            th
+              = "Preis\nFlasche"
+            th
+              = "Preis\nKarton"
+            th
+              | Jahr
+            th
+              | Anbaugebiet
+            th
+              | Weinart
+            th
+            th.hidden-sm.hidden-xs
+            th.hidden-sm.hidden-xs
+        tbody
+          - @wines.each do | wine |
+            tr
+              td
+                = wine.id
+              td
+                = wine.name
+              td
+                = wine.volume
+              td
+                = number_to_currency(wine.bottle_price, unit: '€')
+              td
+                = number_to_currency(wine.box_price, unit: '€')
+              td
+                = wine.year
+              td
+                = wine.from
+              td
+                = wine.wine_type
+              td.hidden-sm.hidden-xs
+                = link_to wine
+                  span.glyphicon.glyphicon-eye-open 
+                  = ' Anzeigen'
+              td.hidden-sm.hidden-xs
+                = link_to edit_wine_path(wine) 
+                  span.glyphicon.glyphicon-pencil
+                  = ' Bearbeiten'  
+              td.hidden-sm.hidden-xs
+                = link_to wine, method: :delete, data: { confirm: 'Bist du sicher?' } 
+                  span.glyphicon.glyphicon-trash 
+                  = ' Löschen'
 
-            td.visible-sm.visible-xs
-              .dropdown
-                a.dropdown-toggle data-toggle='dropdown' aria-haspopup='true'
-                  span.caret
+              td.visible-sm.visible-xs
+                .dropdown
+                  a.dropdown-toggle data-toggle='dropdown' aria-haspopup='true'
+                    span.caret
 
-                ul.dropdown-menu.dropdown-menu-right
-                  li
-                    = link_to wine
-                      span.glyphicon.glyphicon-eye-open 
-                      = ' Anzeigen'
-                  li
-                    = link_to edit_wine_path(wine) 
-                      span.glyphicon.glyphicon-pencil
-                      = ' Bearbeiten'  
-                  li
-                    = link_to wine, method: :delete, data: { confirm: 'Are you sure?' } 
-                      span.glyphicon.glyphicon-trash 
-                      = ' Löschen'
+                  ul.dropdown-menu.dropdown-menu-right
+                    li
+                      = link_to wine
+                        span.glyphicon.glyphicon-eye-open 
+                        = ' Anzeigen'
+                    li
+                      = link_to edit_wine_path(wine) 
+                        span.glyphicon.glyphicon-pencil
+                        = ' Bearbeiten'  
+                    li
+                      = link_to wine, method: :delete, data: { confirm: 'Are you sure?' } 
+                        span.glyphicon.glyphicon-trash 
+                        = ' Löschen'
