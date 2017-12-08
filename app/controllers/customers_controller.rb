@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find_by(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def create
