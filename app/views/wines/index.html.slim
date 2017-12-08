@@ -14,8 +14,6 @@
       thead
         tr
           th
-            | Wein Nr.
-          th
             | Name
           th
             | Vol.
@@ -35,8 +33,6 @@
       tbody
         - @wines.each do | wine |
           tr
-            td
-              = wine.id
             td
               = wine.name
             td
