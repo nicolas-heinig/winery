@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.1'
+gem 'rails', '~> 5.2.4.3'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'thin'
 gem 'dotenv-rails'
